@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    //全局变量
+    // var course='math';
+    // console.log(course);
+    // console.log(window.course);
+    //全局函数
+    var abs = function() {
+      console.log('匿名方法赋值给全局变量');
+    };
+    window.abs();
+    // alert函数也是window的一个全局变量 不然也不可能在任何地方都能调用
+    // window.alert('alert函数是一个全局变量哦');
+    var old_alert=window.alert;
+window.alert=function(){};
+alert('123');
+window.alert=old_alert;
+//恢复 window.alert函数
+//使用命名空间解决javascript中的全局变量冲突 MyApp.x MyApp.foo
+//所有js框架都是使用这个原理
+alert('hello world!');
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

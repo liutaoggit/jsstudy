@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    alert('hello world!');
+    //遍历Array可以采用下标循环，遍历Map和Set就无法使用下标
+    // forof();
+    // forin();
+    // forEachTraverseArray();
+    // forEachTraverseSet();
+    forEachTraverMap();
+    function forof() {
+      var map = new Map([
+        ['name', 'zhangsan'],
+        ['name1', 'zhangsan'],
+        ['name2', 'zhangsan']
+      ]);
+      for (var v of map) {
+        // alert('123');
+        // alert(v[0]+" "+v[1]);
+        console.log(v);
+      }
+
+
+      // var s = new Set(['A', 'B', 'C']);
+      // for (var x of s) { // 遍历Set
+      // console.log(x);
+      // }
+    }
+    //for in在循环数组是会有缺陷 -->使用forif便利Array是没有任何问题的
+    function forin() {
+      var arr1 = [1, 2, 3];
+      arr1.name = 'zhangsan';
+      for (var v in arr1) {
+        console.log(arr1[v]);
+      }
+    }
+    //最好的方法 使用forEach方式遍历访问Array,Set,Map
+    function forEachTraverseArray() {
+      var arr = ['AAA', 'BBB', 'CCC'];
+      arr.forEach(function(element,index,array) {
+        alert(element+':'+index);
+      });
+      // element: 指向当前元素的值
+      // index: 指向当前索引
+      // array: 指向Array对象本身
+    }
+    function forEachTraverseSet()
+    {
+      var set1=new Set(['AAA','BBB','CCC']);
+      set1.forEach(function( element, sameElement, set){
+        // 回调函数没有索引
+        console.log(element);
+      });
+    }
+    function forEachTraverMap()
+    {
+      var map1=new Map([[1,'x'],[2,'y']]);
+      map1.forEach(function(key,value,map1){
+        console.log(key+':'+value);
+      });
+    }
+  </script>
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

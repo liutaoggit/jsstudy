@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+       <meta charset="utf-8">
+       <title></title>
+       <script type="text/javascript">
+              // var s='HELloowAsd';
+              // var s1=s[0].toUpperCase()+s.substring(1).toLowerCase();
+              // console.log(s1);
+              func3();
+
+              function func1(arguments) {
+                     // body...
+                     var arr1 = [1, 4, 9];
+                     arr1 = arr1.map(Math.sqrt);
+                     console.log(arr1);
+
+
+              }
+/**
+ * 对字符串使用Array.map方法  将this指向字符串
+ * @param  {[type]} arguments [description]
+ * @return {[type]}           [description]
+ */
+              function func2(arguments) {
+                     // body...
+                     var map = Array.prototype.map;
+                     var a = map.call("hello world", function(x) {
+                            return x.charCodeAt(0);
+                     });
+                     console.log(a);
+              }
+              /**
+               * 使用方法原型调用map方法 而不是使用具体对象的map方法
+               * @param  {[type]} arguments [description]
+               * @return {[type]}           [description]
+               */
+              function func3 (arguments) {
+                     // body...
+                     // var s='hello world!!!!';
+                     var s=['h','e','l'];
+                     var map = Array.prototype.map;
+                     var a=map.apply(s, [function(x) {return x.charCodeAt(0);}])
+                     console.log(a);
+              }
+       </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<title>Home</title>
+<script type="text/javascript">
+  {
+    // var  arr=['google','apple','orange'];
+    // for (var i = 0; i < arr.length; i++) {
+    //   x=arr[i];
+    //   console.log(x);
+    // xunhuan();
+bianli();
+  }
+  /**
+   * for循环的第二种方式
+   * @return {[type]} [description]
+   */
+  function xunhuan() {
+    var arr1 = [1, 2, 3, 4, 5];
+    for (var key in arr1) {
+      alert(key);
+    }
+  }
+
+  function bianli() {
+    var obj = {
+      'name': 'zhangsan',
+      'age': 20
+    };
+    // for (var variable in obj) {
+    //   alert(obj[variable]);
+    // }
+    alert(obj['name']);
+  }
+</script>
+
+<body>
+
+</body>
+
+</html>

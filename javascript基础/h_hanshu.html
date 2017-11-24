@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    var abs = function(x) {
+      if (typeof x != 'number') {
+        throw 'not a number';
+      }
+      // javascript任何情况下都能使用的可变参数arguments
+      // 通过arguments可以获得传入的素所有参数
+      // 实际上arguments最常用于判断传入参数的个数。你可能会看到这样的写法：
+      // 使用Array的push和pop方法向数组中添加和删除元素
+      for (var i = 0; i < arguments.length; i++) {
+        console.log(arguments[i]);
+      }
+      if (x >= 0) {
+        return x;
+      } else {
+        return -x;
+      }
+    };
+
+    function foo(a, b, ...rest) {
+      console.log(a);
+      console.log(b);
+      console.log(rest);
+    }
+
+    function max(a, b) {
+      if (a > b)
+        return a;
+      else {
+        //注意return语句是总动会在会面机上;的
+        return b
+      }
+    }
+
+    function statementhoist() {
+      var x = 'Hello, ' + y;
+      console.log(x);
+      var y = 'Bob';
+    }
+
+    function varfunc() {
+      var a = 1,
+        b = 2;
+      console.log(a + ':' + b);
+    }
+    varfunc();
+    // statementhoist();
+    // alert(abs(1, 2, 3, 4));
+    // foo(1,2,3,4,5,6);
+    // foo(1);
+    // console.log('max:' + max(10, 23));
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

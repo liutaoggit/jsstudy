@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+// javascript数据类型
+// 123; // 整数123
+// 0.456; // 浮点数0.456
+// 1.2345e3; // 科学计数法表示1.2345x1000，等同于1234.5
+// -99; // 负数
+// NaN; // NaN表示Not a Number，当无法计算结果时用NaN表示
+// Infinity; // Infinity表示无限大，当数值超过了JavaScript的Number所能表示的最大值时，就表示为Infinity
+var a=1.2345e3;
+var b=NaN;
+var c=Infinity;
+var d=2 / 0; // Infinity
+var e=0 / 0; // NaN
+// alert(a);
+// alert(b);
+// alert(c);
+// alert(d);
+// alert(e);
+//
+// javascript字符串不区分大小写
+// alert('xyz');
+// var f="abc";
+// alert(f);
+//
+//
+// 第一种是==比较，它会自动转换数据类型再比较，很多时候，会得到非常诡异的结果；
+// 第二种是===比较，它不会自动转换数据类型，如果数据类型不一致，返回false，如果一致，再比较。
+// var g=0.0;
+// var h='';
+// alert(g==h);
+// alert(g===h);
+
+// 特殊NaN和谁都不相等 包括自己本身
+// var i=NaN===NaN;
+// alert(i);
+//
+//
+// 唯一能判断NaN的方法是通过isNaN()函数：
+// var j=NaN;
+// alert(isNaN(j));
+//
+//这不是JavaScript的设计缺陷。浮点数在运算过程中会产生误差，因
+//这不是J为计算机无法精确表示无限循环小数。要比较两个浮点数是否相等，只能计算它们之差的绝对值，看是否小于某个阈值：
+// var k=1/3===1-2/3;
+// alert(k);
+//
+// 大多数情况下，我们都应该用null。undefined仅仅在判断函数参数是否传递的情况下有用。
+//
+// JavaScript创建数组的两种方式
+// var arr1=[1, 2, 3.14, 'Hello', null, true];
+// alert(arr1);
+//
+// var arr2=new Array(1,2,3,4,5);
+// arr2[0];
+// arr2[1];
+//
+// alert(arr2[8]);
+//
+// javascript对象  是由键值对组成的无序集合
+
+// var obj={name:'zhangsan',age:20,dept:null};
+// alert(obj);
+// alert(obj.name);
+// alert(obj.dept);
+//
+// javascript变量类型  number 字符串 null 对象 数组
+// 静态语言在定义变量时必须指定变量类型  javascript定义变量数据类型时 可以动态绝对数据类型
+// 'use strict';
+
+// abc = 'Hello, world';
+// alert(abc);
+// i="kkkk";
+// alert(i);
+// alert(`多行
+// 字符串
+// 测试`);
+
+var s="Hello World";
+alert(s.toUpperCase());
+alert(s.toLowerCase());
+alert(s.indexOf('o'));
+alert(s.substring(2));
+</script>
+  </head>
+  <body>
+
+  </body>
+</html>

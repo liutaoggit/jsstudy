@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    //定义全局常亮
+    //
+    const PI = 3.14;
+    // foo();
+    // localfunction();
+    // javascript中无法在代码快中定义局部变量
+    // jiegou4();
+    var date = buildDate({
+      year: 2017,
+      month: 1,
+      day: 1
+    });
+    console.log(date);
+
+    function foo() {
+      for (var i = 0; i < 2; i++) {
+        var s = 'hello world';
+      }
+      alert(i + ' ' + s);
+    }
+    //循环代码块中使用let关键字 就可以实现局部变量  不过个人感觉基本不用
+    function localfunction() {
+      // for (let i = 0; i < 3; i++) {}
+      // alert(i);
+      alert(PI);
+    }
+
+    function jiegou() {
+      var [x, y, z] = ['hello', 'javascript', 'c#'];
+      console.log(x + ';' + y + ';' + z);
+    }
+
+    function jiegou1() {
+      var person = {
+        name: '小明',
+        age: 20,
+        gender: 'male',
+        passport: 'G-12345678',
+        school: 'No.4 middle school'
+      };
+      var {
+        name,
+        age,
+        gender
+      } = person;
+      console.log(name + ' ' + age + ' ' + gender);
+    }
+    //解构赋值的应用场景
+    function jiegou3() {
+      var x = 1,
+        y = 2;
+      [x, y] = [y, x];
+      console.log(x + ',' + y);
+    }
+    //获取当前域名和路径
+    function jiegou4() {
+      var {
+        hostname: domain,
+        pathname: path
+      } = location;
+      // console.log(domain+':'+path);
+      console.log(location);
+      // console.log(domain);
+    }
+    /**
+     * 使用解构赋值快速创建一个时间
+     * @param  {[type]} year        [description]
+     * @param  {[type]} month       [description]
+     * @param  {[type]} day         [description]
+     * @param  {Number} [hour=0]    [description]
+     * @param  {Number} [minute=0]  [description]
+     * @param  {[type]} [second=0}] [description]
+     * @return {[type]}             [description]
+     */
+    function buildDate({
+      year,
+      month,
+      day,
+      hour = 0,
+      minute = 0,
+      second = 0
+    }) {
+      return new Date(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

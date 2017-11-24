@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+       <meta charset="utf-8">
+       <title></title>
+       <script type="text/javascript">
+              var s = '12345';
+              var arr = s.split("");
+              //reduce和map方法都是Array的方法  返回值都是一个数组
+              var arr1 = arr.map(function(x){
+                     //将'1','2'--->1,2  char->int
+                     // JavaScript charCodeAt() 方法  返回字符对应的Unicode编码
+                     // charAt(1)  返回指定位置的char字符
+             return x.charCodeAt() - 48;
+         });
+              // console.log(arr);
+              var result = arr1.reduce(function(x, y) {
+                     return x * 10 + y;
+              });
+              console.log(result);
+              // console.log(s.split(''));
+       </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    //JavaScript中的方法:在一个对象中绑定函数  -->此函数称为方法
+    //-->绑定到对象上的函数称为方法
+    // func2();
+    func5();
+
+    function func1() {
+      var person1 = {
+        'name': 'xiaom',
+        'age': 22,
+        'birth': 1999,
+        'age': function() {
+          return new Date().getFullYear() - this.birth;
+          // var y = new Date().getFullYear();
+          //
+          // return y - this.birth;
+        }      parseInt('10');
+      };
+      'use strict';
+      var fn = person1.age;
+      fn();
+      // console.log('age' + ':' + person1.age());
+      // console.log(person1);
+    }
+    // 因为this关键字只在age方法 中起作用 如何在方法中定义函数并在函数中引用this变量的成员属性?
+    // 使用 that捕获this  因为内部函数能够使用外部变量
+    // ***********************
+    // 内部函数可以访问外部函数定义的变量，反过来则不行：
+    function func2() {
+      var xiaoming = {
+        name: '小明',
+        birth: 1990,
+        age: function() {
+          var that = this; // 在方法内部一开始就捕获this
+          function getAgeFromBirth() {
+            var y = new Date().getFullYear();
+            return y - that.birth; // 用that而不是this
+          }
+          return getAgeFromBirth();
+        }
+      };
+      console.log(xiaoming.age());
+    }
+    /**
+     * 使用apply改变this指向  不常用
+     * @return {[type]} [description]
+     */
+
+    // 另一个与apply()类似的方法是call()，唯一区别是：
+    //
+    //     apply()把参数打包成Array再传入；
+    //
+    //     call()把参数按顺序传入。
+
+    function func3() {
+      function getAge() {
+        var y = new Date().getFullYear();
+        return y - this.birth;
+      }
+      var xiaoming = {
+        name: '小明',
+        birth: 1990,
+        age: getAge
+      };
+      console.log(getAge.apply(xiaoming, []));
+    }
+
+    function func4() {
+      // console.log(Math.max(3, 6, 4));
+      var o = Math.max.apply(null, [1, 2, 3, 88, 4]);
+      console.log(o);
+    }
+
+
+/**
+ * 使用apply方法重写parseInt方法 使其能够统计共调用了多少次parseInt方法
+ *
+ *js中所有的的对象都是动态的
+ *
+ * @return {[type]} [description]
+ */
+    function func5() {
+      var num = '2222';
+      console.log(parseInt(num));
+      var count = 0;
+      var oldParseInt = parseInt;
+      window.parseInt = function() {
+        count += 1;
+        return oldParseInt.apply(null, arguments); // 调用原函数
+      };
+      parseInt('10');
+      parseInt('10');
+      parseInt('10');
+      console.log('count:' + count);
+    }
+
+    function func6() {
+
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
