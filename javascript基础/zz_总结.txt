@@ -1,0 +1,60 @@
+2017/11/25  javascript总结前一天学习内容
+
+1.for循环 两种方式
+       1)遍历数组方式
+       2)for in方式 这种方式即可遍历数组,也可遍历对象
+
+2.   js中的set和map对象  使用情况不是很多
+       1)定义方式 var set=new Set();
+                             var set=new Set([1,2,3,4,5]);
+                             var map=new Map();
+                            var map=new Map([['1',a],['2',b]]);
+       2)相关方法
+                     set(),get()  -->Map
+                     delete(),add() -->Set()
+                     求长度 size;
+3.Array相关方法
+              push(),pop(),length
+4.forof循环的使用
+5.可变参数arguements  可以获取函数传入的所有参数
+6. ...rest参数获取额外的可变参数
+7.全局变量 window  全局变量和全局方法window.a =a window.abs()=abs()
+                                   window.alert 中alert()方法也是全局函数(方法)
+8.定义全局常亮 const PI=3.14
+9.let关键字 js中没有局部变量,只有方法变量  使用let关键字实现局部变量
+10.解构赋值的方便   1)数组形式 var [x, y, z] = ['hello', 'javascript', 'c#'];
+                                        2)对象形式   var {
+                                            name,
+                                            age,
+                                            gender
+                                          } = person;
+                                          3)集中常见的解构赋值应用场景
+11.js方法  js对象中的函数
+  'age': function() {   return new Date().getFullYear() - this.birth;         }
+12.js的this关键字 this关键字只指向调用者 如果要在方法中的方法使用this关键字 做法:使用一个临时变量将其保存
+13.method.apply // method.call方法  两者无多大本质区别  作用:可以改变方法this指向
+                 另一个与apply()类似的方法是call()，唯一区别是：
+                 apply()把参数打包成Array再传入；
+                 call()把参数按顺序传入。
+
+                应用:使用apply实现对parseInt()方法重写
+14.解构赋值
+15.高阶函数  函数中调用函数(将函数视作参数传递给)
+                            1) Array.map(fn)
+                            2)Array.reduce(function(x,y){return xx;})
+16.常用的方法
+                     1)charCodeAt() -48  将字符-->数字
+                     2)charAt()   将字符-->Unicode
+                     3)String.toUpperCase()
+                     4)String.toLowerCase()
+                     5)Math.sqrt()
+                     6)parseInt()
+                     7)String.substring(x,y)
+17.使用Array的方法原型+method.call调用map方法
+var map = Array.prototype.map;
+var a = map.call("hello world", function(x) {
+       return x.charCodeAt(0);
+});
+18.Array.map(parseInt)出错的原因   map方法会在内部调用callback方法 callback方法有三个参数
+       callback方法会调用parseInt方法 parseInt会忽略第三个参数 ,但是会将第二个参数视为进制,因此会出错
+       
