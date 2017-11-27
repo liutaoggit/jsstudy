@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+       <meta charset="utf-8">
+       <title></title>
+       <script type="text/javascript">
+              /**
+               * 闭包的延迟机制:导致返回的闭包函数中不能使用任何循环变量
+               * @param  {[type]} arguments [description]
+               * @return {[type]}           [description]
+               */
+              function func1() {
+                     var arr = [];
+                     for (var i = 1; i <= 3; i++) {
+                            arr.push(function() {
+                                   return i * i;
+                            });
+                     }
+                     return arr;
+              }
+              /**
+               * 解决闭包循环中的延时执行问题
+               * 1.采用(function(n){})(i)  格式 用函数参数绑定循环变量  注意 这不是一个函数
+               * 2.返回一个无参函数
+               * @param  {[type]} arguments [description]
+               * @return {[type]}           [description]
+               */
+              function func2 (arguments) {
+                     var arr=[];
+                     for(var i=1;i<=3;i++)
+                     {
+                            //n----->i
+                            arr.push((function(n){
+                                   return function(){
+                                          return n*n;
+                                   }
+                            })(i));
+                     }
+                     return arr;
+              }
+              var result=func2();
+              console.log(result[0]());
+              console.log(result[1]());
+              console.log(result[2]());
+              // function count() {
+              //        var arr = [];
+              //        for (var i = 1; i <= 3; i++) {
+              //               arr.push(function() {
+              //                      return i * i;
+              //               });
+              //        }
+              //        return arr;
+              // }
+              // var results = count();
+              // var f1 = results[0];
+              // var f2 = results[1];
+              // var f3 = results[2];
+              // console.log(f1);
+       </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

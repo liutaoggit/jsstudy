@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+       <head>
+              <meta charset="utf-8">
+              <title></title>
+              <script type="text/javascript">
+                     function func1 () {
+                            console.log(typeof NaN);  //number
+                            console.log(typeof 1.24);  //number
+                            console.log(typeof 'str');//string
+                            console.log(typeof true);//boolean
+                            console.log(typeof undefined);
+                            console.log(typeof Math.abs);
+                            console.log(typeof null);
+                            console.log(typeof []);
+                            console.log(typeof {});
+                            console.log(typeof '');
+                            //用typeof 无法区分null ,Array,Object对象
+                     }
+                     //javascript 中的包装对象 Number String Boolean
+                     function func2 () {
+                            var n=new Number(100);
+                            var b=new Boolean(true);
+                            var s=new String('hello world');
+                            //虽然包装对象的值没变 但是其类型已经变为object类型了  用===会返回false
+                            console.log(typeof n);
+                            console.log(typeof b);
+                            console.log(typeof s);
+
+                            if(n==100)
+                            console.log('n==100');
+                            if(n===100)
+                            console.log('n===100');
+                            //总结 :所以闲的蛋疼也不要使用包装对象！尤其是针对string类型！！！
+                            //总结 Number()、Boolean和String()被当做普通函数，
+                            //把任何类型的数据转换为number、boolean和string类型
+                            var n=Number(100);
+                            console.log(typeof n);
+                            var s=String('hello world');
+                            console.log(typeof s);
+                            // 用parseInt()或parseFloat()来转换任意类型到number；
+                            // 任何其他类型转换为String  1.String()函数  2.对象的toString()方法
+                            // typeof操作符可以判断出number、boolean、string、function和undefined；
+                            // 判断Array要使用Array.isArray(arr)；
+                            //判断null请使用myVar === null；
+
+                            console.log(parseInt(new Number(1.23456)));
+                            var arr=[];
+                            console.log(Array.isArray(arr));
+                            console.log(arr==null);
+                            //判断每个变量是否存在
+                            console.log(typeof xxx=='undefined');
+                            console.log('---------------------------------');
+                            console.log((true).toString());
+                            //任何数据类型都有toString() 除了null,undefined这两种类型
+                            //number类型有个例外
+                            console.log((123).toString());
+                            // console.log(null.toString());
+                     }
+                     func2();
+              </script>
+       </head>
+       <body>
+
+       </body>
+</html>

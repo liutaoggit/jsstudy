@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+       <head>
+              <meta charset="utf-8">
+              <title></title>
+              <script type="text/javascript">
+              function func (arguments) {
+                     //js中的this总是指向调用者,因此在闭包中(内部函数)会出现错误
+                     var obj={
+                            'birth':1996,
+                            //注意这里的getAge是一个方法 而不是返回值
+                            //在这里用到了闭包 主要是延迟执行
+                            'getAge':function(){
+                                   var that=this;
+                                   var fn=function(){
+                                          return new Date().getFullYear()-that.birth;
+                                   }
+                                   return fn;
+                            }
+                     };
+                     console.log('闭包实现延迟执行');
+                     console.log(obj.getAge()());
+              }
+              /**
+               * 使用箭头函数修改this
+               * @param  {[type]} arguments [description]
+               * @return {[type]}           [description]
+               */
+              function funcx (arguments) {
+                     var obj={
+                            'birth':1996,
+                            'getAge':function(){
+                                   var fn=()=>{
+                                          return new Date().getFullYear()-this.birth;
+                                   }
+                                   return fn();
+                            }
+                     };
+                     console.log(obj.getAge());
+              }
+              // funcx();
+              function func2 (arguments) {
+                     var fn=(x)=>x*x;//等同于 fn=(x)=>{return x*x;}
+                     console.log(fn(3));
+              }
+              func2();
+              </script>
+       </head>
+       <body>
+
+       </body>
+</html>

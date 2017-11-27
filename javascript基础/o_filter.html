@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+       <meta charset="utf-8">
+       <title></title>
+       <script type="text/javascript">
+              filter5();
+
+              function filter1() {
+                     var arr = [1, 2, 3, 4, 5, 6, 7, 7, 8];
+                     //和map方法返回一个以改变的数组不同的是
+                     //filter() 返回值为true的元素才会被返回
+                     var arr1 = arr.filter(function(x) {
+                            return x % 2 != 0;
+                     });
+                     console.log(arr1);
+              }
+
+              function filter2() {
+                     // body...
+                     var arr = ['A', 'B', null, '', 'C', ' '];
+                     var arr1 = arr.filter(function(x) {
+                            return x && x.trim();
+                     });
+                     console.log(arr1);
+              }
+              /**
+               * filter()中的参数有三个 但一般我们只有到其中一个
+               * element ,index ,self
+               * @return {[type]} [description]
+               */
+              function filter3() {
+                     var arr = ['A', 'B', 'C'];
+                     var arr1 = arr.filter(function(ele, index, self) {
+                            console.log(ele);
+                            console.log(index);
+                            console.log(self);
+                            return true;
+                     });
+              }
+              /**
+               * 利用filter去除数组中的重复元素
+               * 利用filter的   回调函数的   三个参数
+               * @return {[type]} [description]
+               */
+              function filter4() {
+                     console.log('filter function');
+                     // body...
+                     var arr = ['apple', 'orange', 'apple', 'banana', 'peach', 'orange'];
+                     var arr1 = arr.filter(function(ele, index, self) {
+                            return self.indexOf(ele) == index;
+                     });
+                     console.log(arr1);
+              }
+/**
+ * 求100以内的素数
+ * @return {[type]} [description]
+ */
+              function filter5() {
+                     // body...
+                     var arr = [];
+                     for (var i = 1; i < 100; i++) {
+                            arr[i]=i;
+                     }
+                     var arr1=arr.filter(function(x){
+                            // s && s.trim()表示s不为null/undefined/''而且不是只包含空格的空串' '
+                            //////  用(x>1)也行  不过没这样写着简洁
+                            if(x==1)return false;
+                            //////
+                                   for(var i=2;i<=      Math.sqrt(x);i++)
+                                   {
+                                          if(x%i==0)
+                                          {
+                                                 return false;
+                                          }
+                                   }
+                                   return true;
+                     });
+                     console.log(arr1);
+              }
+       </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

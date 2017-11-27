@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+       <meta charset="utf-8">
+       <title></title>
+       <script type="text/javascript">
+              /**
+               * generator  用function* fn() yield return
+               * 实现多返回值函数
+               * @param  {[type]} arguments [description]
+               * @return {[type]}           [description]
+               */
+              function func1(arguments) {
+                     function* foo(x) {
+                            yield x + 1;
+                            yield x + 2;
+                            yield x + 3;
+                            return x + 4;
+                     }
+                     var fn = foo(5);
+                     console.log(fn.next());
+                     console.log(fn.next());
+              }
+
+              function func2(arguments) {
+                     function fib(max) {
+                            var a = 0,
+                                   b = 1;
+                            var arr = [0, 1];
+                            while (arr.length < max) {
+                                   //解构赋值
+                                   [a, b] = [b, a + b];
+                                   arr.push(b);
+                            }
+                            return arr;
+                     }
+                     console.log(fib(10));
+              }
+
+              //如果要一次只返回一个数 而不是一次行全部返回
+              //和迭代器模式很像
+              //使用generator实现
+              function func3(arguments) {
+                     function* fib(max) {
+                            var a = 0,
+                                   b = 1;
+                            var n = 0;
+                            while (n < max) {
+                                   yield a;
+                                   [a, b] = [b, a + b];
+                                   n++;
+                            }
+                     }
+                     //遍历的两种方式
+                     // var fn = fib(10);
+                     // for (var i = 0; i < 11; i++)
+                     //        console.log(fn.next());
+
+                     //使用forof遍历
+                     for (var x of fib(10)) {
+                            console.log(x);
+                     }
+
+                     //总结 generator实现只有面向对象才能实现的功能
+                     //可以保存局部变量 而不是大量使用局部变量
+
+                     //我的猜想  forEach(function(ele){})
+                     //map(function(x){});
+                     //reduce(function(x,y){})
+                     //内部都是调用Array.protype.map()  +call(applay)等函数实现的
+              }
+              func3();
+       </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
