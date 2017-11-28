@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+       <meta charset="utf-8">
+       <title></title>
+       <script type="text/javascript">
+              function func1(arguments) {
+                     var Student = {
+                            'name': 'Robot',
+                            'height': 1.6,
+                            'run': function() {
+                                   console.log(this.name + ' is running...');
+                            }
+                     };
+                     var xiaoming = {
+                            'name': '小明'
+                     };
+
+                     xiaoming.__proto__ = Student; //实际工作时  不能用obj.__proto__这种方式来改变对象原型
+                     xiaoming.run();
+
+                     //Javascript中没有对象 只有实例
+                     //用什么实现面向对象的类 -->实例
+              }
+/**
+ * 使用一个对象的格式来创建另一个对象
+ * @param  {[type]} arguments [description]
+ * @return {[type]}           [description]
+ */
+              function func2(arguments) {
+                     //原型对象
+                     var Student = {
+                            name: 'Robot',
+                            height: 1.2,
+                            run: function() {
+                                   console.log(this.name + ' is running...');
+                            }
+                     };
+                     function createStudent(name) {
+                            // 基于Student原型创建一个新对象:
+                            var s = Object.create(Student);
+                            // 初始化新对象:
+                            //注意obj.create方法是null的 根据赋值的属性来初始化
+                            s.name = name;
+                            return s;
+                     }
+                     var s=createStudent('wangwu');
+                     console.log(s);
+              }
+              func2();
+       </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

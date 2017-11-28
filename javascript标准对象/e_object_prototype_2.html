@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+       <head>
+              <meta charset="utf-8">
+              <title></title>
+              <script type="text/javascript">
+                     function func1 (arguments) {
+                            var fn=function(){
+                                   this.name='zhangsan';
+                                   this.age=22;
+                            }
+                            var fno=new fn();////=对象可以通过函数来创建
+                            var Student={name:'zs',age:20}
+                            console.log(fno);
+                            console.log(Student);
+                     }
+                     function func2 (arguments) {
+                            var obj={};
+                            var arr=[];
+                            console.log(typeof obj);
+                            console.log(typeof arr);
+                            var obj1=function(){}
+                            var obj2=new Object();
+                            console.log('-----------');
+                            console.log(typeof Object);
+                            console.log(typeof Array);
+                     }
+                     function func3 (arguments) {
+                            function Fn(){
+                                   this.gender=true;
+                                   this.foo=function(){
+                                          console.log('Fn foo----');
+                                   }
+                            }
+                            Fn.prototype.name='张三';
+                            Fn.prototype.age=20;
+                            //匿名函数
+                            Fn.prototype.getYear=function(x){
+                                   return 1998-x;
+                            }
+                            // 即，Fn是一个函数，fn对象是从Fn函数new出来的，这样fn对象就可以调用Fn.prototype中的属性。
+                            var fn=new Fn();
+                            console.log(fn.name);
+                            console.log(fn.getYear(10));
+                            console.log('-----');
+                            console.log(fn.__proto__==Fn.prototype);
+                            fn.foo();
+                            console.log(fn.gender);
+                     }
+
+                     function func4 (arguments) {
+                            var obj={};
+                            // var obj1=new Object();
+                            console.log(obj.__proto__);
+                            // console.log(Object.prototype);
+                     }
+                     function func5 (arguments) {
+                            var Fn=function(){}
+                            var fn=new Fn();
+                            console.log(fn.__proto__);
+                            // console.log(Fn.prototype);
+                     }
+                     func4();
+              </script>
+       </head>
+       <body>
+
+       </body>
+</html>

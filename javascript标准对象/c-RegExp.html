@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+       <meta charset="utf-8">
+       <title></title>
+       <script type="text/javascript">
+              function func1(arguments) {
+                     var re = /^\d{3}\-\d{3,8}$/;
+                     console.log(re.test('010-12345'));
+                     console.log(re.test('010-123q'));
+              }
+              /**
+               * 字符串切割
+               */
+              function func2(arguments) {
+                     var arr = 'a b c  d'.split(' ');
+                     console.log(arr);
+                     var arr1 = 'a,b,v d q  o'.split(/\s+|,/);
+                     console.log(arr1);
+              }
+              /**
+                      * 全局搜索  var r1 = /test/g;
+                            // 等价于:
+                            var r2 = new RegExp('test', 'g');
+                            re.exec(s);
+                            正则表达式还可以指定i标志，表示忽略大小写，m标志，表示执行多行匹配
+
+                            加上^,$等边界字符-->匹配整个字符串
+                            不加上边界符 只要字符串中包含的某一字符串匹配正则就可以
+                            //i
+                            //m
+                            //g匹配全局
+                      * @param  {[type]} arguments [description]
+                      * @return {[type]}           [description]
+                      */
+              function func3(arguments) {
+                     // body...
+                     var re=/^[a-z]+123456$/;
+                     var f=re.test('HELLOq123456');
+                     console.log(f);
+              }
+              function func4 (arguments) {
+                     var re=/ba/i;
+                     var r='BABABAB'.match(re);
+                     console.log(r);
+              }
+              // func1();
+              console.log('----');
+              func3();
+       </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+       <head>
+              <meta charset="utf-8">
+              <title></title>
+              <script type="text/javascript">
+                     var now=new Date();
+                     console.log(now.getFullYear());
+                     console.log(now.getMonth());
+                     console.log(now.getDate());
+                     console.log(now.getDay());//星期
+                     console.log(now.getHours());
+                     console.log(now.getMinutes());
+                     console.log(now.getSeconds());
+                     console.log(now.getTime());//用number形式表示时间
+                     console.log('------------------------------');
+                     //自定义时间
+                     var d=new Date(2017,11,27,12,22,59);//Javascript中0-11  对应月份1-12
+                     console.log(d);
+                     console.log(d.toLocaleString());
+                     console.log(d.toUTCString());
+                     console.log('------------------------------');
+                     //获取当前时间戳
+                     console.log(new Date().getTime());
+                     console.log(Date.now());
+              </script>
+       </head>
+       <body>
+
+       </body>
+</html>
