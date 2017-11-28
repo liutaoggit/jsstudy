@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    /**
+     * 变量未声明 或者未初始化 都是undefined
+     * @return {[type]} [description]
+     */
+      function func1()
+      {
+        var message;
+        console.log(message);
+        // console.log(age);
+      console.log(typeof age);
+      console.log(null==undefined);
+      }
+      function func2()
+      {
+        var f=true;
+        // var t=False;
+        console.log(f);
+        console.log(t);
+      }
+      function func3()
+      {
+        var b=Boolean(true);
+        var n=Boolean(0);
+        var n1=Boolean(1000);
+        console.log(b);
+        console.log(n);
+        console.log(n1);
+      console.log('----');
+      var s1=Boolean('');
+      var s2=Boolean('hello world');
+      console.log(s1);
+      console.log(s2);
+      var o=Boolean(null);
+      var o1=Boolean(new Object());
+      console.log(o);
+      console.log(o1);
+      console.log('-----');
+      var u;
+      console.log(Boolean(u));
+      }
+      function func4()
+      {
+        // var f=Boolean();
+        var s='h';
+        console.log(s==true);
+        console.log(s===true);
+        console.log('-----');
+        var s='100';
+        console.log(s==100);
+        console.log(s===100);
+      }
+      function func5()
+      {
+        var s='1';
+        if(s)
+        {
+          console.log('字符串在if中可以隐式转化为boolean类型');
+        }
+      }
+      function func6()
+      {
+        var n=070;
+        console.log(n);
+        var x=0x10;
+        console.log(x);
+        if(0.1+0.2==0.3)
+        {
+          console.log('dengyu 0.3');
+        }
+        if(0.05+0.25==0.3)
+        {
+          console.log('--等于0.3');
+        }
+
+      }
+      function func7()
+      {
+        var result=Number.MAX_VALUE+Number.MAX_VALUE;
+        var result=Number.MIN_VALUE;
+        console.log(result);
+        // console.log(isFinite(result));
+        console.log(isFinite(result));
+      }
+      function func8()
+      {
+        console.log(NaN==NaN);
+        console.log(100/'asdqwe');
+        console.log(isNaN(NaN));
+        console.log(isNaN('blue'));
+        console.log(isNaN(true));
+        console.log(isNaN(10));
+        console.log('----');
+        console.log(isNaN("10"));
+        console.log(isNaN('true'));
+        var o=new Object();
+        console.log(isNaN(o));
+
+      }
+      /**
+       * Number函数
+       * @return {[type]} [description]
+       */
+      function func9()
+      {
+        console.log(Number(true));
+        console.log(Number(12.12));
+        console.log(Number(0xff));
+        console.log(Number(''));
+        console.log(Number('Hello world'));
+        console.log(Number('123iiii'));
+        console.log(Number(070));
+      }
+      /**
+       * parseInt()函数
+       */
+      function func10()
+      {
+        console.log(parseInt(''));
+        console.log(parseInt('123'));
+        console.log(parseInt('123.buluqwe'));
+        console.log(parseInt(0xff));
+        console.log(parseInt(070));
+        console.log(parseInt('10',2));
+        console.log(parseInt('10',16));
+      }
+      function func11()
+      {
+        var s='abc\tde f';
+        console.log(s.length);//返回的是字符串长度
+      }
+      func11();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

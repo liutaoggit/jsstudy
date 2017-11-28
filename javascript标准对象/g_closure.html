@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+/**
+ * 闭包应用情况之一:作为返回值
+ * @return {[type]} [description]
+ */
+      function func1()
+      {
+        function fn()
+        {
+          var max=10;
+          return function bar(x){
+            if(x>max)
+            {
+              console.log(x);
+            }
+          }
+        }
+        var fx=fn();
+        fx(15);
+      }
+      func1();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

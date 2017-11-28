@@ -1,19 +1,147 @@
 <!DOCTYPE html>
 <html>
-       <head>
-              <meta charset="utf-8">
-              <title></title>
-              <script type="text/javascript">
-                     function func1 () {
-                            function Foo(){}
-                            var f1=new Foo();
-                            console.log(f1 instanceof Foo);
-                            console.log(f1 instanceof Object);
-                     }
-                     func1();
-              </script>
-       </head>
-       <body>
 
-       </body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!-- <script src=""> -->
+
+  <!-- </script> -->
+  <script type="text/javascript">
+    /**
+     *
+     * @return {[type]} [description]
+     */
+    function func1() {
+      function Foo() {}
+      var f1 = new Foo();
+      var D = new Date();
+      console.log(f1 instanceof Foo);
+      console.log(f1 instanceof Object);
+      var arr = new Array();
+      // var arr=[];
+      // var D=new Date();
+
+
+
+    }
+    /**
+     * [func2 description]
+     * @return {[type]} [description]
+     */
+    function func2() {
+      console.log(Object instanceof Function);
+      console.log(Function instanceof Object);
+
+    }
+/**
+ * 访问一个对象的属性时 ,现在这个对象的基本属性中寻找
+ * 没有找到随着这个对象的__proto__向上寻找-->这就是原型链
+ * @return {[type]} [description]
+ */
+    function func3() {
+      function Foo(){}
+      var fn=new Foo();
+      fn.a=10;
+      Foo.prototype.a=100;
+      Foo.prototype.b=200;
+      console.log(fn.a);
+      console.log(fn.b);
+    }
+    /**
+     * 使用hasOwnProperty区分属性时基本属性还是 从原型链上寻找的属性
+     * 这个hasOwnProperty属性时从Object.prototype对象中继承来的
+     * @return {[type]} [description]
+     */
+    function func4()
+    {
+      function Foo(){}
+      var fn=new Foo();
+      fn.a=10;
+      // fn.b=20;
+      Foo.prototype.a=100;
+      Foo.prototype.b=200;
+      console.log(Function.prototype);
+      // Function.prototype.call()
+      // console.log(fn.a);
+      // console.log(fn.b);
+      for (var item in fn) {
+        if (fn.hasOwnProperty(item)) {
+          console.log(item);
+        }
+      }
+    }
+    //重写toString方法
+    function func5()
+    {
+      function Foo()
+      {
+
+      }
+      Foo.prototype.toString=function(){
+        return 'liutao';
+      };
+      var fn=new Foo();
+      console.log(fn.toString());
+      console.log(fn);
+      // console.log(fn);
+      // console.log(fn.toString());
+    }
+    function func6()
+    {
+      console.log(this);
+    }
+    /**
+     * 函数作为对象的属性时 如果是作为对象的一个属性来调用,this指向本对象
+     * @return {[type]} [description]
+     */
+    function func7()
+    {
+      var obj={
+        x:10,
+        fn:function(){
+          console.log(this);
+          console.log(this.x);
+        }
+      };
+      obj.fn();
+    }
+    /**
+     * 函数作为对象的属性,但不是作由obj来调用,this就会指向windows
+     * @return {[type]} [description]
+     */
+    function func8()
+    {
+      var obj={
+        x:10,
+        fn:function(){
+          console.log(this);
+          console.log(this.x);
+        }
+      };
+      var fx=obj.fn;
+      fx();
+    }
+    function func9()
+    {
+      var obj={x:10};
+      // var fn=function(){
+      //   console.log(this);
+      //   console.log(this.x);
+      // }
+      function fn(){
+        console.log(this);
+        console.log(this.x);
+      }
+      fn.call(obj);
+    }
+    // func1();
+    func9();
+  </script>
+</head>
+
+<body>
+
+</body>
+
 </html>
