@@ -1,0 +1,44 @@
+第三章.基本概念
+
+1.js 5中基本数据类型(number,boolean,string,undefined,null),1种复杂数据类型(object),object是由一组属性键值对组成
+2.typeof 检测变量的数据类型  注意
+                  typeof 正则 =function
+                  typeof null =object
+3.undefined 类型 变量未声明,未赋值(初始化)
+4.不用typeof 来判空 而是用if(obj!=null)来判定  注意undefined==null的
+5.boolean类型  是区分大小写的 true/false ECMAScript所有类型都可以转换为boolean  如何转化使用Boolean()函数
+              Boolean(string)  Boolean(number) Boolean(object)在if()语句中可以隐式转换
+              if(String){}
+6.number类型  Infinity=Number.MAX_VALUE -Infinity  =Number.MIN_VALUE
+7.NaN 当数值转换错误就会等于或返回NaN 性质:任何涉及NaN操作都会返回NaN,NaN和任何数值都不相等,包括其本身
+8.isNaN()判断一个数值是否不是数值(能转换成number 返回false 如'10' true)
+9.数值转换 共3个方法 :Number()  parseInt()  parseFloat()  Number()方法可以把任何类型转换成number,而parseInt()主要把string转换成number
+10.Number()方法使用  (不常用)  Number(true)=1  Number(null)=0  Number('1')=1 Number(' ')=NaN(Number()转换的string包含字母或者下划线空格都会返回NaN) Number(undefined)=NaN和任何数值都不相等
+11.parseInt() 1.忽略空格 2.第一个字符不是数字或者符号 返回NaN parseInt('123blue')=123 parseInt('')=NaN  parseInt(true)=NaN
+12.string类型 number,boolean,object,string都有toString() 而null,和undefined没有toString()方法
+13.String() 方法 String(null)='null' String(undefined)='undefined'
+14.number->string  +""也可以实现
+15.object类型 定义:一组属性(键值对形式)的集合  方法也是一种属性
+              constructor
+              hasOwnProperty(property)判断属性是否是该对象的当前对象的基本属性
+              isPrototypeOf(object)  检查传入的对象是否存在于当前对象的原型链中 Object.prototype.isPrototype(fn)
+              propertyIsEnumerable(pro)
+              toLocalString() toString() valueOf()
+16.ECMAScript中不存在块级作用域 只能通过函数来划分作用域
+17 for-in遍历对象和数组 但是遍历Array有缺陷
+18.continue,break 结合label使用(不常用,常出现在多重循环中)
+19.js函数定义 封装任意条语句 ,而且可以在任何地点,时候运行
+20.return ;或者没有return语句函数都会返回undefined
+21.arguemnts 函数参数 length 类型 没有重载
+
+
+第四章 变量,作用域和内存问题
+1.两种基本数据类型(按值访问)(boolean,string,numbermnull,undefined),引用类型(object)
+2.string在java,c#中都被视作引用类型,在js被视为值类型(基本数据类型)
+3.赋值  基本数据类型 创建副本  引用类型  复制的指针(两个变量指向的是同一对象(同一内存))
+4.参数传递都是值传递
+5.检测类型 instanceof 用法 variable instanceof Object检测左侧按照__proto__右侧按照prototype,两者引用重合返回true(总结:根据原型链来判断)
+6.执行环境  全局环境(windows),函数局部环境
+7.javascript垃圾回收机制,垃圾自动清理
+        1) 标记清除  常用
+        2)引用计数   几乎不用

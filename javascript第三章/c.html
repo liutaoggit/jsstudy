@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function func1 (arguments) {
+        var num=0;
+        //跳出内部循环,也会跳出外部循环
+        outermost:
+        for(var i=0;i<10;i++)
+        {
+          for(var j=0;j<10;j++)
+          {
+            if(i==5&&j==5)
+            break outermost;
+            num++;
+          }
+        }
+        console.log(num);
+      }
+      function func2 (arguments) {
+        var num=0;
+        //普通的continue只跳出内循环
+        outermost:
+        for(var i=0;i<10;i++)
+        {
+          for(var j=0;j<10;j++)
+          {
+            if(i==5&&j==5)
+            continue outermost;
+            num++;
+          }
+        }
+        console.log(num);
+      }
+      function func3 (arguments) {
+        function foo (arguments) {
+          // body...
+        console.log(typeof arguments);
+          return;
+        }
+        console.log(foo('',''));
+      }
+      function func4 (num1,num2) {
+        // body...
+        arguments[0]=100;
+        console.log(arguments.length);
+        console.log(num1);
+      }
+      function func5 (arguments) {
+       var obj=new Object();
+       var obj1=obj;
+       obj.name='zhangsan';
+       console.log(obj1);
+      }
+      function func6 (obj) {
+        obj.name='zhangsan';
+        obj=new Object();
+        obj.name='来了来了';
+
+      }
+      var a=100;
+      function func7 (arguments) {
+        a=10;
+      }
+      function buildUrl (arguments) {
+        var qs='hello !!!!';
+        with(location)
+        {
+          var url=href+qs;
+        }
+        return url;
+      }
+      function func8 (arguments) {
+        // body...
+        with(location)
+        {
+          var a=100;
+        }
+        var s;
+        console.log(s==null);
+        console.log(undefined==null);
+        console.log(a);
+        console.log(parseInt(true));
+        console.log('-------------------');
+        console.log(String(null)=='null');
+      }
+      // console.log(buildUrl());;
+func8();
+      // func7();
+      // console.log(a);
+      // var obj={};
+      // func6(obj);
+      // console.log(obj);
+      // func4(1);
+      // func5();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

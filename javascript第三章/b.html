@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function func1 (arguments) {
+        var arr=[null,null,undefined,1,2,2];
+        for (var item in arr) {
+          console.log(arr[item]);
+        }
+      }
+      function func2 (arguments) {
+        var s;
+        var obj={
+          name:null,
+          age:20,
+          gender:s
+        };
+        for (var item in obj) {
+          console.log(obj[item]);
+        }
+      }
+      func2();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

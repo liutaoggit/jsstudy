@@ -133,8 +133,44 @@
       {
         var s='abc\tde f';
         console.log(s.length);//返回的是字符串长度
+        var arr=new Array();
+
       }
-      func11();
+      function func12 (arguments) {
+        // body...
+        //
+        function foo(){}
+        console.log(foo.toString());
+      }
+
+/**
+ * 验证null undefined是否有toString()
+ * @param  {[type]} arguments [description]
+ * @return {[type]}           [description]
+ */
+      function func13 (arguments) {
+        var s;
+        var s1=null;
+        console.log(s);
+        console.log(s1);
+        //传入的对象是否是当前对象的原型
+        // console.log(Function.isPrototypeOf(Function.prototype));
+        function Foo (arguments) {
+          // body...
+        }
+        var fn=new Foo();
+        // console.log(Object.isPrototypeOf(Object));
+        console.log(fn.__proto__==Foo.prototype);
+        console.log(fn.isPrototypeOf(Object.prototype));
+        console.log(fn.isPrototypeOf(Object));
+        console.log(fn.isPrototypeOf(Function.prototype));
+        console.log(fn.isPrototypeOf(Function));
+        console.log(Object.prototype.isPrototypeOf(fn));
+        console.log(Function.prototype.isPrototypeOf(Foo));
+      }
+
+
+      func13();
     </script>
   </head>
   <body>
