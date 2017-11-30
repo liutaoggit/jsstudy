@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    /**
+     * arguments callee属性 指向拥有arguments的函数
+     * @param  {[type]} arguments [description]
+     * @return {[type]}           [description]
+     */
+    function func1() {
+      function factorial(num) {
+        // body...
+        if (num == 1) return 1;
+        else {
+          return num * arguments.callee(num - 1);
+        }
+      }
+      console.log(factorial(5));
+    }
+    /**
+     * apply call
+     * 扩充函数运行的作用域
+     * @param  {[type]} arguments [description]
+     * @return {[type]}           [description]
+     */
+    function func2 () {
+      var color='red';
+      window.color=color;
+      var o={color:'blue'}
+      function sayColor () {
+        console.log(this.color);
+      }
+      sayColor.call(this);
+      sayColor.call(o);
+    }
+    function func3 () {
+      var global=function () {
+          return this;
+      }()
+      console.log(global);
+    }
+    func3();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    /**
+     * caller属性时函数的另一个属性(prototype)
+     * caller 保存着调用当前函数的引用
+     * 如果是全局作用域 则为null
+     * @return {[type]} [description]
+     */
+      function inner()
+      {
+        console.log(inner.caller);
+      }
+      /**
+       * inner.caller=outer().toString()
+       * 会显示outer函数的源代码
+       * @param  {[type]} arguments [description]
+       * @return {[type]}           [description]
+       */
+      function outer (arguments) {
+        inner();
+      }
+      
+      // outer();
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

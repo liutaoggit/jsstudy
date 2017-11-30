@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    /**
+     * callee 是arguments的一个特殊属性  指向拥有arguments()的函数
+     *
+     * caller主要作用返回调用 上一个执行环境的源码 实际上没什么用
+     * callee 是arguments的属性 指向拥有callee的函数
+     * @param  {[type]} arguments [description]
+     * @return {[type]}           [description]
+     */
+        function inner () {
+          console.log(arguments.callee.caller);
+        }
+        function outer () {
+          inner();
+        }
+        // console.log(inner);
+        outer();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

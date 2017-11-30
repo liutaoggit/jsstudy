@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function func1 () {
+        var s="a\\tb";
+        console.log(s);
+      }
+      function func2 () {
+        var re=null;
+        for(var i=0;i<10;i++)
+        {
+          re=/cat/g;
+          var r=re.test('catastrophe');
+          console.log(r);
+        }
+      }
+      function func3 () {
+        var re=null;
+        for(var i=0;i<10;i++)
+        {
+          re=new RegExp('cat','g');
+          var r=re.test('catastrophe');
+          console.log(r);
+        }
+      }
+      /**
+       * exec() 专门为捕获组设计()
+       * @param  {[type]} arguments [description]
+       * @return {[type]}           [description]
+       */
+      function func4 () {
+        var text='hel lo wo rld';
+        var pattern=/\w{2}/g;
+        var m=pattern.exec(text);
+        console.log(m);
+      }
+      func4();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function func1 (arguments) {
+        // body...
+        var person={name:'qwe'};
+        person.name='liutao';
+        console.log(person);
+      }
+      function func2 (arguments) {
+        function display (arguments) {
+          console.log(arguments.age);
+          console.log(arguments.name);
+          console.log(arguments['name']);
+          console.log(arguments['age']);
+        }
+        display({name:'zhangsan',age:20});
+      }
+      function func3 (arguments) {
+        var arr=[];
+        arr[arr.length]='a';
+        arr[arr.length]='b';
+        console.log(arr);
+        console.log(arr.length);
+        console.log(arr instanceof Array);
+        console.log(Array.isArray(arr));
+      }
+      function func4 () {
+        var colors=["red","blue","green"];
+        console.log(colors.toString());
+        console.log(colors.valueOf());
+        console.log(colors);
+        // alert(colors);
+      }
+      function func5 (arguments) {
+        // body...
+        function foo (o) {
+          // body...
+          // console.log(arguments[3]);
+          // console.log(arguments.length);
+console.log(o);
+        }
+        var a=[1,1,2,3];
+        var o=new Object();
+        foo(o);
+      }
+      function func6 (arguments) {
+        // body...
+        var color=['green',null,'blue'];
+        console.log(color.toString());
+      }
+      func6();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
