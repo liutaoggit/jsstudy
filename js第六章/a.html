@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    function Parent() {
+      this.age = 40;
+      this.name = 'blue';
+      console.log('parent constructor---');
+    }
+
+    function Child() {
+      this.age = 20;
+    }
+    Child.prototype = new Parent();
+    var c = new Child();
+    // console.log(c.name);
+    // console.log(c.age);
+    // console.log(c.constructor);
+    // console.log(Child.prototype.constructor);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

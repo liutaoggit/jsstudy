@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+  /**
+   * constructor会指向Object 需要改进
+   * @return {[type]} [description]
+   */
+    function func1() {
+      function Person() {
+        // body...
+      }
+      Person.prototype = {
+        name: 'aa',
+        age: 22,
+        sayName: function() {
+          console.log('Person sayName');
+        }
+      };
+      var person = new Person();
+      console.log(person instanceof Person);
+      console.log(Person.prototype.isPrototypeOf(person));
+      console.log(person.constructor == Person);
+      console.log(person.constructor == Object);
+    }
+    /**
+     * 虽然修复了实例构造函数的指向 但是让其数据属性Enumerable变成了true
+     * 如何解决 使用Object.defineProperty(obj,'property',{})这里就不写了
+     * @return {[type]} [description]
+     */
+    function func2 () {
+      function Person() {
+        // body...
+      }
+      Person.prototype = {
+        constructor:Person,
+        name: 'aa',
+        age: 22,
+        sayName: function() {
+          console.log('Person sayName');
+        }
+      };
+      var person=new Person();
+      console.log(person.constructor == Person);
+      console.log(person.constructor == Object);
+      for (var variable in person) {
+      console.log(variable+':'+person[variable]);
+      }
+      for (var variable in Person.prototype) {
+        console.log(variable+':'+Person.prototype[variable]);
+      }
+    }
+/**
+ * 虽然函数的原型可以修改并在所有实例上反映出来,但是不能重写
+ * 一旦重写,obj.prototype就不再指向原来的原型
+ * @return {[type]} [description]
+ */
+    function func3 () {
+      function Person() {
+        // body...
+      }
+      var person=new Person();
+      Person.prototype = {
+        constructor:Person,
+        name: 'aa',
+        age: 22,
+        sayName: function() {
+          console.log('Person sayName');
+        }
+      };
+
+      // person.sayName=function(){
+      //   console.log('person1 sayName');
+      // };
+      person.sayName();
+      // var person2=new Person();
+      // person2.sayName();
+    }
+    //原型模式缺点  不能调用构造函数创建,导致所有属性都一样
+    //原型模式缺点  引用类型(Array,Object)在内存中只有一份,所有实共享一个引用,显然不行
+
+    //由于原型中引用的共享  导致原型模式很少使用
+
+    function func4 () {
+      function Person (arguments) {
+        // body...
+      }
+      Person.prototype = {
+        constructor:Person,
+        name: 'aa',
+        age: 22,
+        colors:['blue','red','yellow'],
+        sayName: function() {
+          console.log('Person sayName');
+        }
+      };
+      var person=new Person();
+      person.colors.push('white');
+      var person1=new Person();
+      person1.colors.push('black');
+      console.log(person1.colors);
+    }
+    /**
+     * 组合模式创建对象  构造器模式+原型模式
+     * 最为常见
+     * @return {[type]} [description]
+     */
+    function func5 () {
+      function Person (name,age) {
+        this.name=name;
+        this.age=age;
+        this.friend=['blue','jack','xiaoming'];
+      }
+      Person.prototype={
+        constructor:Person,
+        sayName:function(){
+          console.log('Person prototype sayName---');
+        }
+      };
+    }
+    // function func6 () {
+    //   function Person (arguments) {
+    //     // body...
+    //   }
+    //   console.log(Person.sayName);
+    // }
+    /**
+     * 寄生构造函数模式  原理和工厂模式一样
+     * 缺点: 无法通过instanceof来确定实例类型
+     * 因此基本不使用
+     * @param  {[type]} arguments [description]
+     * @return {[type]}           [description]
+     */
+    function func7 (arguments) {
+      // body...
+    }
+    /**
+     * 稳妥构造函数
+     *
+     * @param  {[type]} arguments [description]
+     * @return {[type]}           [description]
+     */
+    function func8 () {
+      // body...
+        function Person (name) {
+          var o=new Object();
+          o.name='aaa';
+          o.sayName=function(){
+            // console.log(this.name);
+            alert(name);
+          };
+          return o;
+        }
+        var p=new Person('bbbb');
+        p.sayName();
+
+    }
+    func8();
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

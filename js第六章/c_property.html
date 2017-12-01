@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    //数据属性
+    /**
+     * configuration  默认true 判断该属性是否可delete
+     * enumerable 默认true 判断该属性能否可以for-in循环遍历
+     * writeable 默认true 判断该属性是否可写
+     * value 默认undefined(默认设定为设置的值) 保存属性值(读写操作的就是这个属性)
+     * @return {[type]} [description]
+     */
+
+    var person = {
+      name: 'liutao',
+      age: 29,
+      colors: ['blue', 'red', 'yellow'],
+      sayName: function() {
+        console.log(this.name);
+      }
+    }
+    /**
+     * 修改属性默认的数据属性
+     * 使用Object.defineProperty(obj,propertyname,descriptor)
+     * 其中descriptor必须为configurable,enumerable,writeable,value
+     *
+     * @return {[type]} [description]
+     */
+    function func1() {
+      Object.defineProperty(person, "name", {
+        writable: false,
+        value: 'bob',
+        configurable: false
+      });
+      Object.defineProperty(person, 'colors', {
+        enumerable: true
+      })
+
+console.log(person);
+      // writable为false时name不可更改
+      // person.name='zhangsan';
+      // console.log(person);
+
+      //configurable为false时name不可删除
+      // delete person.name;
+      // console.log(person);
+
+      //  xxxxxxxxxx不是这样的
+      // for (var variable in person.colors) {
+      //   console.log(person.colors[variable]);
+      // }
+      //enumerable 表示该属性在forin遍历person时能否显示
+      // for (var variable in person) {
+      // console.log(person[variable]);
+      // }
+
+      //使用defineProperty定义新的属性时 3个数据属性默认值都是false,和在构造函数中定义的刚好相反
+      // Object.defineProperty(person,'gender',{
+      //   value:'male'
+      // });
+      // person.gender='female';
+      // console.log(person.gender);
+
+      //访问属性 4个 configurable,enumerable,get,set 前两个一样  最好别用 默认就能读写或者用数据属性或者方法
+      // get,set两个函数最好成对出现
+      //
+      // Object.defineProperty(person,'birthday',{
+      //
+      //   get:function(){
+      //     console.log('getget');
+      //     return 2017-this.age;
+      //   },
+      //   set:function(value){
+      //     console.log('setset');
+      //     this.age=value;
+      //   },
+      //
+      // });
+      // person.birthday=2000;
+      // console.log(person.age);
+    }
+    func1();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
