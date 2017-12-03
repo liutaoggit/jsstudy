@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    function func1() {
+      var obj = {
+        name: 'zzzzzzzzz',
+        sayHi: function() {
+          console.log(this.name);
+        },
+        sayName: function() {
+          var that = this;
+          return function() {
+            // console.log(that.sayHi);
+            that.sayHi();
+            console.log(that.name);
+
+          }
+        }
+      }
+      obj.sayName()();
+    }
+    func1();
+  </script>
+</body>
+
+</html>
