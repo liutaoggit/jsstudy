@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    function func1() {
+      setInterval(function() {
+        console.log('hello world');
+      }, 1000);
+    }
+    //使用间歇调用ID取消间歇调用
+    function func2() {
+      var num = 0;
+      var max = 10;
+      var intervalId = null;
+
+      function incrementNumber() {
+        num++;
+        if (num == 10) {
+          clearInterval(intervalId);
+
+        }
+        console.log('num:' + num);
+      }
+      intervalId = setInterval(incrementNumber, 500);
+    }
+    //使用间歇调用实现超时调用
+    var num=0;
+    var max=10;
+    function incre () {
+      num++;
+      if(num<max)
+      {
+        setInterval(incre,500);
+        console.log('num:'+num);
+      }
+    }
+    setTimeout(incre,500);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      var text='c1at f2at b3at';
+      // var result=text.replace(/\dat/g,'ppp');
+      var pattern=new RegExp("\\dat","g");
+      var result=text.replace(pattern,'ppp');
+      console.log(result);
+      var uri='https://ai.taobao.com/search/index.htm?spm=a231o.7712113%2Fb.1002.3.27f27c09NEVJ3v&prepvid=200_11.131.38.141_10696_1512308395987&extra=engPvid%3A100_10.103.67.17_24903_9031512308395989774&pid=mm_121791806_21994248_74364489&key=%E6%95%B0%E7%A0%81&ppath=20000%3A21465&ppathName=%E5%93%81%E7%89%8C%3ANikon%2F%E5%B0%BC%E5%BA%B7&clk1=&unid=&source_id=&app_pvid=200_11.131.38.141_10696_1512308395987';
+      var r1=encodeURI(uri);
+      var r2=encodeURIComponent(uri);
+      console.log(r1);
+      console.log(r2);
+      var msg='hello world';
+      eval('alert(msg);');
+      eval('var a=100000');
+      alert(a);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

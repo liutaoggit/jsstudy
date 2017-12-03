@@ -10,10 +10,21 @@
       // window.moveTo(100,100);
       // alert(outerWidth+':'+outerHeight+':'+innerWidth+':'+innerHeight);
       // alert(document.documentElement.clientWidth+':'+document.documentElement.clientHeight);
-      var newwin = window.open('http://www.baidu.com', target = '_blank', "height=400,width=300,top=20,left=20,resizable=no");
-      newwin.resizeTo(500,500);
-      newwin.close();
-      console.log(top==window);
+      // var newwin = window.open('http://www.baidu.com', target = '_blank', "height=400,width=300,top=20,left=20,resizable=no");
+      // newwin.resizeTo(500,500);
+      // newwin.close();
+      // console.log(top==window);
+
+      // console.log(top.outerWidth+':'+top.outerHeight);
+      // console.log(window.outerWidth+':'+window.outerHeight);
+      // console.log(window.innerWidth+':'+window.innerHeight);
+      // console.log(window.parent.frames[0]);
+      // console.log(top.frames[0]);
+      // console.log(frames[0]);
+      // console.log(top.frames["1"]);
+      // console.log(window.parent.frames[0]==top.frames[0]);
+      // window.open('http://www.baidu.com','_self');
+      location.href="http://www.baidu.com";
     }
   </script>
 </head>

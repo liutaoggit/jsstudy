@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script type="text/javascript">
-      //私有变量:函数中的变量
-      //特权方法 外部无法直接访问私有变量 使用特权方法能够访问
-      //特权方法 特权访问使用闭包实现
 
-      function Person (name) {
-        this.getName=function(){
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    //私有变量:函数中的变量
+    //特权方法 外部无法直接访问私有变量 使用特权方法能够访问
+    //特权方法 特权访问使用闭包实现
+
+    function func1() {
+      function Person(name) {
+        this.getName = function() {
           return name;
         };
-        this.setName=function(value){
-          name=value;
+        this.setName = function(value) {
+          name = value;
         }
       }
-      var person=new Person('zhangsan');
+      var person = new Person('zhangsan');
       console.log(person.getName());
       person.setName('lisi');
       console.log(person.getName());
-    </script>
-  </head>
-  <body>
+    }
+  </script>
+</head>
 
-  </body>
+<body>
+
+</body>
+
 </html>

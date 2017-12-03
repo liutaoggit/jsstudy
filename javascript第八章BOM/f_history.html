@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      // history.go(-1);
+      // history.go(1);
+      // history.go('baidu');
+      function func1 () {
+         history.go(-1);
+      }
+      function func2 (arguments) {
+        // history.go(1);
+        history.forward();
+      }
+      console.log(history.length);
+      console.log(screen);
+      console.log(history);
+    </script>
+  </head>
+  <body>
+    <input type="button" name="button" value="button" onclick="func1()">
+      <input type="button" name="button1" value="button" onclick="func2()">
+      <a href="http://www.baidu.com">baidu</a>
+  </body>
+</html>
