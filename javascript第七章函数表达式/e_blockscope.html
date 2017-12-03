@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    /**
+     * js没有块级作用域 可以使用闭包(函数)来实现
+     * @return {[type]} [description]
+     */
+    function outputNumbers() {
+      for (var i = 0; i < 10; i++);
+      alert(i);
+    }
+    // outputNumbers();
+
+    /**
+     * 块级作用域语法如下 也称私有作用域
+     * @return {[type]} [description]
+     */
+    (function() {
+      //块级作用域
+    })();
+
+    function func1 () {
+      function blockFN (count) {
+        (function(){
+          for(var i=0;i<10;i++);
+        })();
+        alert(i);
+      }
+      blockFN();
+    }
+    func1();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

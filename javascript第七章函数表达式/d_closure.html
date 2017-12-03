@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    //闭包概念
+    //函数执行完毕后,其局部环境会被销毁,但是如果使用闭包,则会保存对应的活动对象
+
+    //闭包中只能取到循环中变量的最后一个值
+    function createFunctions() {
+      var result = new Array();
+      for (var i = 0; i < 10; i++) {
+        result[i] = function() {
+          return i;
+        };
+      }
+      return result;
+    }
+    /**
+     * 解决方法  定义一个匿名函数 并立即执行
+     * 在匿名函数中在返回一个闭包 记录上一个作用域的num值
+     * @return {[type]} [description]
+     */
+    function createFunctions1() {
+      var result = new Array();
+      for (var i = 0; i < 10; i++) {
+        result[i] = function(num) {
+          return function() {
+            return num;
+          }
+        }(i);
+      }
+      return result;
+    }
+
+
+
+    // var r=createFunctions1();
+    // console.log(r[0]());
+    //
+    //闭包中的this对象
+    //由于函数执行完会销毁函数环境 因此this关键字在寻着作用寻找时 找不到原来调用对象的this
+    // 解决方案:在外部作用域中保存一个this即可
+  var name = 'The window';
+    function func1() {
+
+      var object = {
+        name: 'MyObject',
+        getNameFunc: function() {
+          return function() {
+            return this.name;
+          };
+        }
+      };
+      console.log(object);
+      console.log(object.getNameFunc()());
+    }
+    function func2 () {
+      var object = {
+        name: 'MyObject',
+        getNameFunc: function() {
+          var that=this;
+          return function() {
+            return that.name;
+          };
+        }
+      };
+      console.log(object.getNameFunc()());
+    }
+    func2();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

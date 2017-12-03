@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    // 'use strict';
+    function func1() {
+      //毫无卵用的方法属性
+      function fn(arguments) {}
+      console.log(fn.name);
+    }
+    /**
+     * 函数既能赋值给变量,又能作为方法返回值
+     * @param  {[type]} property [description]
+     * @return {[type]}          [description]
+     */
+    function createComparisonFunction(property) {
+      return function(object1, object2) {
+        var value1 = object1[property];
+        var value2 = object2[property];
+        return value1 > value2 ? 1 : (value1 == value2 ? 0 : -1);
+      }
+    }
+    /**
+     * 递归 factorial阶乘 第一种方式
+     * @return {[type]} [description]
+     */
+    function func2() {
+      function factorial1(num) {
+        if (num <= 1) return 1;
+        else {
+          return num * factorial1(num - 1);
+        }
+      }
+
+      var f = factorial1;
+      factorial1 = null;
+      var r = f(4);
+      // var r=factorial1(4);
+      console.log(r);
+    }
+    /**
+     * 递归 第二种方式 但是在严格模式下 use strict  arguments.callee是无法使用的
+     * @return {[type]} [description]
+     */
+
+    function func3() {
+      function factorial(num) {
+        if (num <= 1) return 1;
+        else {
+          return num * arguments.callee(num - 1);
+        }
+      }
+      var f = factorial;
+      factorial1 = null;
+      var r = f(4);
+      console.log(r);
+    }
+    /**
+     * 递归第三种  有名的函数表达式
+     * @return {[type]} [description]
+     */
+    function func4() {
+      var factorial = (function f(num) {
+        if (num <= 1) return 1;
+        else {
+          return num * f(num - 1);
+        }
+      });
+      var r=factorial(4);
+      console.log(r);
+    }
+    func4();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
